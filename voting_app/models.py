@@ -21,7 +21,7 @@ class Character(models.Model):
     name  = models.CharField(max_length=20)
     image = models.ImageField(upload_to='img')
     age   = models.IntegerField()
-    vote  = models.ManyToManyField(Vote, through='VoteForCharacter')
+    vote  = models.ManyToManyField(Vote, through='Vote_for_character')
     class Meta:
         verbose_name = 'Персонаж'
         verbose_name_plural = 'Персонажи'
@@ -29,7 +29,7 @@ class Character(models.Model):
         return self.name
         #return str(self.url)
 
-class VoteForCharacter(models.Model):
+class Vote_for_character(models.Model):
     vote         = models.ForeignKey(Vote, on_delete=models.CASCADE)
     character    = models.ForeignKey(Character, on_delete=models.CASCADE)
     #character    = models.OneToOneField(Character, on_delete=models.CASCADE)

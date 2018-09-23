@@ -6,4 +6,4 @@ from .models import *
 
 admin.site.register(Vote)
 admin.site.register(Character)
-admin.site.register(VoteForCharacter)
+admin.site.register(Vote_for_character)

@@ -8,7 +8,7 @@
         {% for item in nominates %}
             {% include "base/listOutput.html" %}
             <input type="radio" id="{{ item.id }}"
-            name="idToVote" value="{{ item.character.id }}" checked>
+                   name="id_to_vote" value="{{ item.character.id }}" checked>
             <label for="{{ item.character.name }}">{{ item.character.name }}</label>
         {% endfor %}
       </div>
