@@ -2,18 +2,13 @@
 
 {% block content %}
     <p>Голосование: {{ vote }}.</p>
-
-    <ul>
     <p>Победители: </p>
         {% for item in winners %}
-            {% include "base/listOutput.html" %}
+            <p>{% include "base/listOutput.html" %}</p>
         {% endfor %}
-    </ul>
 
-    <ul>
     <p>Топ 5: </p>
         {% for item in topFives %}
-            {% include "base/listOutput.html" %}
+            <p>{% include "base/listOutput.html" %}</p>
         {% endfor %}
-    </ul>
 {% endblock content %}

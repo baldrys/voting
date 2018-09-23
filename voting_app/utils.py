@@ -3,12 +3,14 @@ from django.utils import timezone
 
 def is_active_vote(vote):
     if vote.end_date < timezone.now() or timezone.now() < vote.start_date :
-        # print("Дата не в интервале")
         return False
 
-    listOfWinners =  vote.voteforcharacter_set.filter(votes_number__gte=vote.votes_to_win)
-    if listOfWinners.count() != 0:
-        # print("Есть победители")
+    # listOfWinners =  vote.voteforcharacter_set.filter(votes_number__gte=vote.votes_to_win)
+    # if listOfWinners.count() != 0:
+    #     # print("Есть победители")
+    #     return False
+
+    if vote.voteforcharacter_set.latest('votes_number').votes_number >= vote.votes_to_win:
         return False
 
     return True

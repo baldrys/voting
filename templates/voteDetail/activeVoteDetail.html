@@ -2,16 +2,15 @@
 
 {% block content %}
     <form action="." method="POST">{% csrf_token %}
-      <p>Выберите за кого проголосовать:</p>
+        <p>Голосование: {{ vote }}.</p>
+        <p>Выберите за кого проголосовать:</p>
       <div>
-
         {% for item in nominates %}
             {% include "base/listOutput.html" %}
             <input type="radio" id="{{ item.id }}"
             name="idToVote" value="{{ item.character.id }}" checked>
             <label for="{{ item.character.name }}">{{ item.character.name }}</label>
         {% endfor %}
-
       </div>
       <div>
         <button type="submit">Голосовать</button>

@@ -1,11 +1,15 @@
 {% extends 'base/base.html' %}
-
 {% block content %}
     <p> {{ votes_name }}: </p>
-    <ul>
+    {% if listOfeVotes %}
         {% for vote in listOfeVotes %}
-            <a href='{{ vote.get_absolute_url }}'><li>{{ vote }}</li></a>
+            <p><a href='{{ vote.get_absolute_url }}'>{{ vote }}</a></p>
         {% endfor %}
-    </ul>
-
+    {% else %}
+        {% if votes_name == "Активные голосования" %}
+                <p> Активных голосований нету</p>
+            {% else %}
+                <p> Завершенных голосований нету</p>
+        {% endif %}
+    {% endif %}
 {% endblock content %}
