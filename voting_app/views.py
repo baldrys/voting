@@ -11,13 +11,15 @@ def home(request):
 def active_votes_view(request):
     page_title = 'Активные голосования'
     votes_name = page_title
-    listOfeVotes = active_votes()
+    # listOfeVotes = active_votes()
+    list_of_votes = get_list_of_votes("active")
     return render(request, 'votes/votes.html', locals())
 
 def completed_votes_view(request):
     page_title = 'Завершенные голосования'
     votes_name = page_title
-    listOfeVotes = completed_votes()
+    # listOfeVotes = completed_votes()
+    list_of_votes = get_list_of_votes("completed")
     return render(request, 'votes/votes.html', locals())
 
 def detail_vote_view(request, id):

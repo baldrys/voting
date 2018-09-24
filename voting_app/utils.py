@@ -24,3 +24,11 @@ def completed_votes():
         if is_completed_vote(vote):
             list_of_completed_votes.append(vote)
     return list_of_completed_votes
+
+def get_list_of_votes(type_of_vote = "active"):
+    list_of_votes = []
+    predicate = is_active_vote if type_of_vote == "active" else is_completed_vote
+    for vote in Vote.objects.all():
+        if predicate(vote):
+            list_of_votes.append(vote)
+    return list_of_votes
